@@ -9,10 +9,8 @@ import java.net.URL
 import java.net.URLConnection 
 
 def call(urlString) { 
-    private HttpRequest httpRequest
+    private HttpRequest httpRequest = new HttpRequest()
     private String userAgent = 'Jenkins'
-
-    def httpRequest = new HttpRequest()
 
     def resp = httpRequest.get(urlString)
             .header("User-Agent", userAgent)
