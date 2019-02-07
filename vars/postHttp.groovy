@@ -8,7 +8,6 @@ def call(urlString) {
     private OkHttpClient client = new OkHttpClient();
 
     Request request = new Request.Builder().url(urlString).build();
-    Call call = client.newCall(request);
     Response response = client.newCall(request).execute();
     ResponseBody body = response.body();
 
