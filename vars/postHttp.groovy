@@ -10,5 +10,5 @@ def call(urlString) {
     Response response = client.newCall(request).execute();
     ResponseBody body = response.body();
 
-    return body
+    return body.string()
 }
