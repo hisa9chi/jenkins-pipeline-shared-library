@@ -9,5 +9,5 @@ def call(urlString) {
     def resp = httpRequest.get(urlString)
             .header("User-Agent", userAgent)
             .send()
-    return resp.bodyText()
+    return resp
 }
