@@ -12,9 +12,7 @@ def call(urlString) {
     private HttpRequest httpRequest
     private String userAgent = 'Jenkins'
 
-    JenkinsHttpClient() {
-        httpRequest = new HttpRequest()
-    }
+    def httpRequest = new HttpRequest()
 
     def resp = httpRequest.get(urlString)
             .header("User-Agent", userAgent)
