@@ -1,13 +1,14 @@
-import groovy.json.JsonBuilder
-@Grab("org.jodd:jodd-http:3.8.5")
-import jodd.http.HttpRequest
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
 def call(urlString) { 
-    private HttpRequest httpRequest = new HttpRequest()
-    private String userAgent = 'Jenkins'
+    private OkHttpClient client = new OkHttpClient();
 
-    def resp = httpRequest.get(urlString)
-            .header("User-Agent", userAgent)
-            .send()
-    return resp.statusCode()
+    Request request = new Request.Builder().url(urlString).build();
+    Call call = client.newCall(request);
+    Response response = call.execute();
+    ResponseBody body = response.body();
+
+    return response
 }
